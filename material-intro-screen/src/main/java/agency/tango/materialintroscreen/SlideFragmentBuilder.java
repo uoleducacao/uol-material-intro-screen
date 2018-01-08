@@ -7,6 +7,8 @@ import android.support.annotation.DrawableRes;
 public class SlideFragmentBuilder {
     int backgroundColor;
     int buttonsColor;
+    int pageIndicatorBackgroundColor;
+    int pageIndicatorColor;
     String title;
     String description;
     String[] neededPermissions;
@@ -20,6 +22,16 @@ public class SlideFragmentBuilder {
 
     public SlideFragmentBuilder buttonsColor(@ColorRes int buttonsColor) {
         this.buttonsColor = buttonsColor;
+        return this;
+    }
+
+    public SlideFragmentBuilder pageIndicatorBackgroundColor(@ColorRes int backgroundColor) {
+        this.pageIndicatorBackgroundColor = backgroundColor;
+        return this;
+    }
+
+    public SlideFragmentBuilder pageIndicatorColor(@ColorRes int backgroundColor) {
+        this.pageIndicatorColor = backgroundColor;
         return this;
     }
 

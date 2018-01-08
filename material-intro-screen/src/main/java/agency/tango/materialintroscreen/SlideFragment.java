@@ -20,6 +20,8 @@ import agency.tango.materialintroscreen.parallax.ParallaxFragment;
 public class SlideFragment extends ParallaxFragment {
     private final static String BACKGROUND_COLOR = "background_color";
     private static final String BUTTONS_COLOR = "buttons_color";
+    private static final String PAGE_INDICATOR_BACKGROUND_COLOR = "page_indicator_background_color";
+    private static final String PAGE_INDICATOR_COLOR = "page_indicator_color";
     private static final String TITLE = "title";
     private static final String DESCRIPTION = "description";
     private static final String NEEDED_PERMISSIONS = "needed_permission";
@@ -29,6 +31,8 @@ public class SlideFragment extends ParallaxFragment {
 
     private String backgroundColor;
     private String buttonsColor;
+    private String pageIndicatorColor;
+    private String pageIndicatorBackgroundColor;
     private int image;
     private String title;
     private String description;
@@ -45,6 +49,8 @@ public class SlideFragment extends ParallaxFragment {
         Bundle bundle = new Bundle();
         bundle.putInt(BACKGROUND_COLOR, builder.backgroundColor);
         bundle.putInt(BUTTONS_COLOR, builder.buttonsColor);
+        bundle.putInt(PAGE_INDICATOR_COLOR, builder.buttonsColor);
+        bundle.putInt(PAGE_INDICATOR_BACKGROUND_COLOR, builder.buttonsColor);
         bundle.putInt(IMAGE, builder.image);
         bundle.putString(TITLE, builder.title);
         bundle.putString(DESCRIPTION, builder.description);
@@ -73,6 +79,8 @@ public class SlideFragment extends ParallaxFragment {
     public void initializeView() {
         Bundle bundle = getArguments();
         backgroundColor = bundle.getString(BACKGROUND_COLOR);
+        pageIndicatorColor = bundle.getString(PAGE_INDICATOR_BACKGROUND_COLOR);
+        pageIndicatorBackgroundColor = bundle.getString(PAGE_INDICATOR_COLOR);
         buttonsColor = bundle.getString(BUTTONS_COLOR);
         image = bundle.getInt(IMAGE, 0);
         title = bundle.getString(TITLE);
@@ -89,6 +97,14 @@ public class SlideFragment extends ParallaxFragment {
 
     public String buttonsColor() {
         return buttonsColor;
+    }
+
+    public String pageIndicatorColor(){
+        return pageIndicatorColor;
+    }
+
+    public String pageIndicatorBackgroundColor(){
+        return pageIndicatorBackgroundColor;
     }
 
     public boolean hasAnyPermissionsToGrant() {

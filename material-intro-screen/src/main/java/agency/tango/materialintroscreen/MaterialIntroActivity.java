@@ -425,6 +425,14 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         return (Integer) argbEvaluator.evaluate(positionOffset, Color.parseColor(adapter.getItem(position).buttonsColor()), Color.parseColor(adapter.getItem(position + 1).buttonsColor()));
     }
 
+    private Integer getPageIndicatorColor(int position, float positionOffset) {
+        return (Integer) argbEvaluator.evaluate(positionOffset, Color.parseColor(adapter.getItem(position).pageIndicatorColor()), Color.parseColor(adapter.getItem(position + 1).backgroundColor()));
+    }
+
+    private Integer getPageIndicatorBackgroundColor(int position, float positionOffset) {
+        return (Integer) argbEvaluator.evaluate(positionOffset, Color.parseColor(adapter.getItem(position).pageIndicatorBackgroundColor()), Color.parseColor(adapter.getItem(position + 1).backgroundColor()));
+    }
+
 
     private class ColorTransitionScrollListener implements IPageScrolledListener {
         @Override
@@ -448,7 +456,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(buttonsColor);
             }
-            pageIndicator.setPageIndicatorColor(buttonsColor);
+            pageIndicator.setPageIndicatorColor(getPageIndicatorColor(position, offset), getPageIndicatorBackgroundColor(position, offset));
 
             tintButtons(ColorStateList.valueOf(buttonsColor));
         }
