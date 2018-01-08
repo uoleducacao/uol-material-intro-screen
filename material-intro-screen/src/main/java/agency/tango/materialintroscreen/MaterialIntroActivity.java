@@ -2,6 +2,7 @@ package agency.tango.materialintroscreen;
 
 import android.animation.ArgbEvaluator;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
@@ -417,16 +418,13 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     }
 
     private Integer getBackgroundColor(int position, float positionOffset) {
-        return (Integer) argbEvaluator.evaluate(positionOffset, color(adapter.getItem(position).backgroundColor()), color(adapter.getItem(position + 1).backgroundColor()));
+        return (Integer) argbEvaluator.evaluate(positionOffset, Color.parseColor(adapter.getItem(position).backgroundColor()), Color.parseColor(adapter.getItem(position + 1).backgroundColor()));
     }
 
     private Integer getButtonsColor(int position, float positionOffset) {
-        return (Integer) argbEvaluator.evaluate(positionOffset, color(adapter.getItem(position).buttonsColor()), color(adapter.getItem(position + 1).buttonsColor()));
+        return (Integer) argbEvaluator.evaluate(positionOffset, Color.parseColor(adapter.getItem(position).buttonsColor()), Color.parseColor(adapter.getItem(position + 1).buttonsColor()));
     }
 
-    private int color(@ColorRes int color) {
-        return ContextCompat.getColor(this, color);
-    }
 
     private class ColorTransitionScrollListener implements IPageScrolledListener {
         @Override
@@ -434,10 +432,10 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
             if (position < adapter.getCount() - 1) {
                 setViewsColor(position, offset);
             } else if (adapter.getCount() == 1) {
-                viewPager.setBackgroundColor(adapter.getItem(position).backgroundColor());
-                messageButton.setTextColor(adapter.getItem(position).backgroundColor());
+                viewPager.setBackgroundColor(Color.parseColor(adapter.getItem(position).backgroundColor()));
+                messageButton.setTextColor(Color.parseColor(adapter.getItem(position).backgroundColor()));
 
-                tintButtons(ColorStateList.valueOf(adapter.getItem(position).buttonsColor()));
+                tintButtons(ColorStateList.valueOf(Color.parseColor(adapter.getItem(position).buttonsColor())));
             }
         }
 

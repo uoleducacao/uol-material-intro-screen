@@ -27,8 +27,8 @@ public class SlideFragment extends ParallaxFragment {
     private static final String IMAGE = "image";
     private static final int PERMISSIONS_REQUEST_CODE = 15621;
 
-    private int backgroundColor;
-    private int buttonsColor;
+    private String backgroundColor;
+    private String buttonsColor;
     private int image;
     private String title;
     private String description;
@@ -72,8 +72,8 @@ public class SlideFragment extends ParallaxFragment {
 
     public void initializeView() {
         Bundle bundle = getArguments();
-        backgroundColor = bundle.getInt(BACKGROUND_COLOR);
-        buttonsColor = bundle.getInt(BUTTONS_COLOR);
+        backgroundColor = bundle.getString(BACKGROUND_COLOR);
+        buttonsColor = bundle.getString(BUTTONS_COLOR);
         image = bundle.getInt(IMAGE, 0);
         title = bundle.getString(TITLE);
         description = bundle.getString(DESCRIPTION);
@@ -83,11 +83,11 @@ public class SlideFragment extends ParallaxFragment {
         updateViewWithValues();
     }
 
-    public int backgroundColor() {
+    public String backgroundColor() {
         return backgroundColor;
     }
 
-    public int buttonsColor() {
+    public String buttonsColor() {
         return buttonsColor;
     }
 
