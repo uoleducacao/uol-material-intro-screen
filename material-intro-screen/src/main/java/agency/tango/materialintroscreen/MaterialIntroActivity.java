@@ -465,6 +465,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
             ViewCompat.setBackgroundTintList(nextButton, color);
             ViewCompat.setBackgroundTintList(backButton, color);
             ViewCompat.setBackgroundTintList(skipButton, color);
+            ViewCompat.setBackgroundTintList(messageButton, color);
         }
     }
 

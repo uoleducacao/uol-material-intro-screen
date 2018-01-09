@@ -34,13 +34,23 @@ public class CustomSlide extends SlideFragment {
 
     @Override
     public String backgroundColor() {
-        return "#000000";
+        return "#FFFFFF";
     }
 
     @Override
     public String buttonsColor() {
-        return "#000000";
+        return "#00FFFF";
 
+    }
+
+    @Override
+    public String pageIndicatorColor() {
+        return "#000000";
+    }
+
+    @Override
+    public String pageIndicatorBackgroundColor() {
+        return "#000000";
     }
 
     @Override

@@ -1,6 +1,5 @@
 package agency.tango.materialintro;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.FloatRange;
 import android.support.annotation.Nullable;
@@ -9,7 +8,6 @@ import android.widget.Toast;
 
 import agency.tango.materialintroscreen.MaterialIntroActivity;
 import agency.tango.materialintroscreen.MessageButtonBehaviour;
-import agency.tango.materialintroscreen.SlideFragmentBuilder;
 import agency.tango.materialintroscreen.animations.IViewTranslation;
 
 public class IntroActivity extends MaterialIntroActivity {
