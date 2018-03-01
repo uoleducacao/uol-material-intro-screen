@@ -32,6 +32,10 @@ public class CustomSlide extends SlideFragment {
         return view;
     }
 
+    public String getTextColor() {
+        return "#FFFFFF";
+    }
+
     @Override
     public String backgroundColor() {
         return "#FFFFFF";

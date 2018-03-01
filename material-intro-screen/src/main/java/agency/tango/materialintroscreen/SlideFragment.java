@@ -19,6 +19,7 @@ import agency.tango.materialintroscreen.parallax.ParallaxFragment;
 
 public class SlideFragment extends ParallaxFragment {
     private final static String BACKGROUND_COLOR = "background_color";
+    private final static String TEXT_COLOR = "text_color";
     private static final String BUTTONS_COLOR = "buttons_color";
     private static final String PAGE_INDICATOR_BACKGROUND_COLOR = "page_indicator_background_color";
     private static final String PAGE_INDICATOR_COLOR = "page_indicator_color";
@@ -31,6 +32,7 @@ public class SlideFragment extends ParallaxFragment {
 
     private String backgroundColor;
     private String buttonsColor;
+    private String textColor;
     private String pageIndicatorColor;
     private String pageIndicatorBackgroundColor;
     private int image;
@@ -48,6 +50,7 @@ public class SlideFragment extends ParallaxFragment {
 
         Bundle bundle = new Bundle();
         bundle.putInt(BACKGROUND_COLOR, builder.backgroundColor);
+        bundle.putInt(TEXT_COLOR, builder.textColor);
         bundle.putInt(BUTTONS_COLOR, builder.buttonsColor);
         bundle.putInt(PAGE_INDICATOR_COLOR, builder.buttonsColor);
         bundle.putInt(PAGE_INDICATOR_BACKGROUND_COLOR, builder.buttonsColor);
@@ -79,6 +82,7 @@ public class SlideFragment extends ParallaxFragment {
     public void initializeView() {
         Bundle bundle = getArguments();
         backgroundColor = bundle.getString(BACKGROUND_COLOR);
+        textColor = bundle.getString(TEXT_COLOR);
         pageIndicatorColor = bundle.getString(PAGE_INDICATOR_BACKGROUND_COLOR);
         pageIndicatorBackgroundColor = bundle.getString(PAGE_INDICATOR_COLOR);
         buttonsColor = bundle.getString(BUTTONS_COLOR);
@@ -89,6 +93,10 @@ public class SlideFragment extends ParallaxFragment {
         possiblePermissions = bundle.getStringArray(POSSIBLE_PERMISSIONS);
 
         updateViewWithValues();
+    }
+
+    public String getTextColor(){
+        return textColor;
     }
 
     public String backgroundColor() {

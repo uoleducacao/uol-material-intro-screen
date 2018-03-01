@@ -6,6 +6,7 @@ import android.support.annotation.DrawableRes;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class SlideFragmentBuilder {
     int backgroundColor;
+    int textColor;
     int buttonsColor;
     int pageIndicatorBackgroundColor;
     int pageIndicatorColor;
@@ -14,6 +15,11 @@ public class SlideFragmentBuilder {
     String[] neededPermissions;
     String[] possiblePermissions;
     int image;
+
+    public SlideFragmentBuilder textColor(@ColorRes int textColor) {
+        this.textColor = textColor;
+        return this;
+    }
 
     public SlideFragmentBuilder backgroundColor(@ColorRes int backgroundColor) {
         this.backgroundColor = backgroundColor;

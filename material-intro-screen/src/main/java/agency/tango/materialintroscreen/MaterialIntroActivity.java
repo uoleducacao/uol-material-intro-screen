@@ -417,6 +417,10 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         }).show();
     }
 
+    private Integer getTextColor(int position, float positionOffset) {
+        return (Integer) argbEvaluator.evaluate(positionOffset, Color.parseColor(adapter.getItem(position).getTextColor()), Color.parseColor(adapter.getItem(position + 1).getTextColor()));
+    }
+
     private Integer getBackgroundColor(int position, float positionOffset) {
         return (Integer) argbEvaluator.evaluate(positionOffset, Color.parseColor(adapter.getItem(position).backgroundColor()), Color.parseColor(adapter.getItem(position + 1).backgroundColor()));
     }
@@ -441,7 +445,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
                 setViewsColor(position, offset);
             } else if (adapter.getCount() == 1) {
                 viewPager.setBackgroundColor(Color.parseColor(adapter.getItem(position).backgroundColor()));
-                messageButton.setTextColor(Color.parseColor(adapter.getItem(position).backgroundColor()));
+                messageButton.setTextColor(Color.parseColor(adapter.getItem(position).getTextColor()));
 
                 tintButtons(ColorStateList.valueOf(Color.parseColor(adapter.getItem(position).buttonsColor())));
             }
@@ -449,8 +453,9 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
 
         private void setViewsColor(int position, float offset) {
             int backgroundColor = getBackgroundColor(position, offset);
+            int textColor = getTextColor(position, offset);
             viewPager.setBackgroundColor(backgroundColor);
-            messageButton.setTextColor(backgroundColor);
+            messageButton.setTextColor(textColor);
 
             int buttonsColor = getButtonsColor(position, offset);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
