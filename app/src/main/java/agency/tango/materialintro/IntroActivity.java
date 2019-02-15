@@ -1,8 +1,8 @@
 package agency.tango.materialintro;
 
 import android.os.Bundle;
-import android.support.annotation.FloatRange;
-import android.support.annotation.Nullable;
+import androidx.annotation.FloatRange;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
 
